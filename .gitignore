@@ -1,0 +1,35 @@
+# DEPENDENCIES
+/client/node_modules
+/server/node_modules
+
+# TESTING
+/client/coverage
+
+# PRODUCTION
+/client/build
+
+# NEXT JS
+/client/.next
+
+# MISC
+/client/.DS_Store
+/server/.DS_Store
+/client/*.pem
+/server/*.pem
+
+# DEBUG
+/client/npm-debug.log*
+/server/npm-debug.log*
+
+# ENVOIRMENT VARIABLE FILES
+/client/.env
+/server/.env
+
+# VERCEL
+/client/.vercel
+
+# TYPESCRIPT
+/client/*.tsbuildinfo
+/client/next-env.d.ts
+/server/*.tsbuildinfo
+/server/next-env.d.ts
