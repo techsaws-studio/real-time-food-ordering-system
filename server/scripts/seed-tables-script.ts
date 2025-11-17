@@ -86,7 +86,7 @@ const SeedTablesScript = async (): Promise<void> => {
     createdTables.forEach((table) => {
       const qrLength = table.qrCodeUrl?.length || 0;
       console.log(
-        `   📌 ${table.tableId} - Table #${table.tableNumber} (Capacity: ${table.capacity}) [QR: ${qrLength} bytes]`
+        `📌 ${table.tableId} - Table #${table.tableNumber} (Capacity: ${table.capacity}) [QR: ${qrLength} bytes]`
       );
     });
 

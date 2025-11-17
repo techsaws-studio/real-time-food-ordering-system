@@ -5,6 +5,8 @@ export interface IJWTPayload {
   tableId: string;
   deviceId?: string;
   role?: UserRoleEnum;
+  userId?: string;
+  email?: string;
 }
 
 export interface IQRCode {
