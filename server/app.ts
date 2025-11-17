@@ -9,7 +9,8 @@ import { CorsConfigurations } from "./configs/cors-configurations.js";
 
 import { AppErrorHandler } from "./middlewares/app-error-handler.js";
 
-import TestingRouters from "./routes/testing-routes.js";
+import TestingRouter from "./routes/testing-routes.js";
+import AuthRouter from "./routes/auth-routes.js";
 
 export const app = express();
 
@@ -22,7 +23,8 @@ app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
 // API ROUTES PATH
-app.use("/", TestingRouters);
+app.use("/", TestingRouter);
+app.use("/api/auth", AuthRouter);
 
 // ERROR HANDLER
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {

@@ -40,6 +40,7 @@ export enum PaymentStatusEnum {
 }
 
 export enum UserRoleEnum {
+  CUSTOMER = "CUSTOMER",
   ADMIN = "ADMIN",
   KITCHEN = "KITCHEN",
   RECEPTIONIST = "RECEPTIONIST",

@@ -22,7 +22,7 @@ const extractToken = (req: Request): string | null => {
 };
 
 const extractTokenFromCookie = (req: Request): string | null => {
-  return req.cookies?.token || null;
+  return req.cookies?.authToken || req.cookies?.token || null;
 };
 
 export const VerifyAuthentication = CatchAsyncErrors(

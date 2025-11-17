@@ -2,6 +2,7 @@ import "dotenv/config";
 import jwt from "jsonwebtoken";
 
 import { IJWTPayload } from "../types/utils-interfaces.js";
+import { UserRoleEnum } from "../enums/utils-enums.js";
 
 export const GenerateJWT = (payload: IJWTPayload): string => {
   if (!process.env.JWT_SECRET) {
@@ -34,7 +35,7 @@ export const VerifyJWT = (token: string): IJWTPayload => {
 export const GenerateAdminJWT = (payload: {
   userId: string;
   email: string;
-  role: "admin" | "kitchen";
+  role: UserRoleEnum;
 }): string => {
   if (!process.env.JWT_SECRET) {
     throw new Error("JWT_SECRET is not defined in environment variables");

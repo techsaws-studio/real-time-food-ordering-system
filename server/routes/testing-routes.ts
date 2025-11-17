@@ -5,9 +5,9 @@ import {
   RootEndpointFunction,
 } from "../controllers/testing-controllers.js";
 
-const TestingRouters = express.Router();
+const TestingRouter = express.Router();
 
-TestingRouters.get("/", RootEndpointFunction);
-TestingRouters.get("/ping", PingFunction);
+TestingRouter.get("/", RootEndpointFunction);
+TestingRouter.get("/ping", PingFunction);
 
-export default TestingRouters;
+export default TestingRouter;

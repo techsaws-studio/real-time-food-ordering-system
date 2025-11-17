@@ -1,7 +1,8 @@
 export enum UserRoleEnum {
-  CUSTOMER = "customer",
-  ADMIN = "admin",
-  KITCHEN = "kitchen",
+  CUSTOMER = "CUSTOMER",
+  ADMIN = "ADMIN",
+  KITCHEN = "KITCHEN",
+  RECEPTIONIST = "RECEPTIONIST",
 }
 
 export enum DatePeriod {
