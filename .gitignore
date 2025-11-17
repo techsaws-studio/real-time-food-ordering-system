@@ -33,3 +33,6 @@
 /client/next-env.d.ts
 /server/*.tsbuildinfo
 /server/next-env.d.ts
+
+# DOCUMENTATION
+/documentation

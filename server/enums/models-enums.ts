@@ -1,0 +1,56 @@
+export enum TableStatusEnum {
+  AVAILABLE = "AVAILABLE",
+  OCCUPIED = "OCCUPIED",
+  RESERVED = "RESERVED",
+  MAINTENANCE = "MAINTENANCE",
+}
+
+export enum OrderStatusEnum {
+  PLACED = "PLACED",
+  ACCEPTED = "ACCEPTED",
+  IN_KITCHEN = "IN_KITCHEN",
+  READY = "READY",
+  SERVED = "SERVED",
+  REJECTED = "REJECTED",
+  CANCELLED = "CANCELLED",
+}
+
+export enum BillStatusEnum {
+  OPEN = "OPEN",
+  PENDING_PAYMENT = "PENDING_PAYMENT",
+  PAID = "PAID",
+  CLOSED = "CLOSED",
+  VOID = "VOID",
+}
+
+export enum PaymentMethodEnum {
+  EASYPAISA = "EASYPAISA",
+  JAZZCASH = "JAZZCASH",
+  MASTERCARD = "MASTERCARD",
+  DEBIT_CARD = "DEBIT_CARD",
+  CASH = "CASH",
+}
+
+export enum PaymentStatusEnum {
+  PENDING = "PENDING",
+  PROCESSING = "PROCESSING",
+  SUCCEEDED = "SUCCEEDED",
+  FAILED = "FAILED",
+  REFUNDED = "REFUNDED",
+}
+
+export enum UserRoleEnum {
+  ADMIN = "ADMIN",
+  KITCHEN = "KITCHEN",
+  RECEPTIONIST = "RECEPTIONIST",
+}
+
+export enum MenuItemTagEnum {
+  VEGETARIAN = "VEGETARIAN",
+  VEGAN = "VEGAN",
+  GLUTEN_FREE = "GLUTEN_FREE",
+  SPICY = "SPICY",
+  POPULAR = "POPULAR",
+  NEW = "NEW",
+  CHEF_SPECIAL = "CHEF_SPECIAL",
+}

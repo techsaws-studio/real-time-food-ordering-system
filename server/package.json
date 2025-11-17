@@ -1,0 +1,52 @@
+{
+  "name": "real-time-food-ordering-system",
+  "version": "1.0.0",
+  "description": "A full-stack restaurant management web app built with Next.js, TypeScript, Tailwind CSS, ShadCN UI, Node.js, Express, MongoDB, and Socket.IO. This system enables customers to scan a table QR code, browse the menu, place orders, and track them live, while the kitchen dashboard updates in real time and the admin panel manages menus, tables, and payments.",
+  "homepage": "https://github.com/techsaws-studio/real-time-food-ordering-system#readme",
+  "bugs": {
+    "url": "https://github.com/techsaws-studio/real-time-food-ordering-system/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techsaws-studio/real-time-food-ordering-system.git"
+  },
+  "license": "ISC",
+  "author": "TechSaws",
+  "type": "module",
+  "main": "server.ts",
+  "scripts": {
+    "build": "tsc && tsc-alias",
+    "dev": "tsx watch server.ts",
+    "start": "node dist/server.js",
+    "seed:tables": "tsx scripts/seed-tables-script.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^1.13.1",
+    "bcrypt": "^6.0.0",
+    "compression": "^1.8.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.19.2",
+    "qrcode": "^1.5.4",
+    "socket.io": "^4.8.1",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/compression": "^1.8.1",
+    "@types/cookie-parser": "^1.4.10",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.5",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.9.2",
+    "@types/qrcode": "^1.5.6",
+    "tsc-alias": "^1.8.16",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}
