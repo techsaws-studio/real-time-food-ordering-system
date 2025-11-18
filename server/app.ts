@@ -11,6 +11,8 @@ import { AppErrorHandler } from "./middlewares/app-error-handler.js";
 
 import TestingRouter from "./routes/testing-routes.js";
 import AuthRouter from "./routes/auth-routes.js";
+import UserRouter from "./routes/user-routes.js";
+import TableRouter from "./routes/table-routes.js";
 
 export const app = express();
 
@@ -25,6 +27,8 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 // API ROUTES PATH
 app.use("/", TestingRouter);
 app.use("/api/auth", AuthRouter);
+app.use("/api/users", UserRouter);
+app.use("/api/tables", TableRouter);
 
 // ERROR HANDLER
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
