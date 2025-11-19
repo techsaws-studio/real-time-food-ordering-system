@@ -1,9 +1,5 @@
 import { z } from "zod";
 
-// ============================================================================
-// CREATE CATEGORY
-// ============================================================================
-
 export const CreateCategorySchema = z.object({
   body: z.object({
     name: z
@@ -28,10 +24,6 @@ export const CreateCategorySchema = z.object({
   }),
 });
 
-// ============================================================================
-// GET CATEGORY BY ID
-// ============================================================================
-
 export const GetCategoryByIdSchema = z.object({
   params: z.object({
     categoryId: z
@@ -39,10 +31,6 @@ export const GetCategoryByIdSchema = z.object({
       .uuid("Invalid category ID format"),
   }),
 });
-
-// ============================================================================
-// UPDATE CATEGORY
-// ============================================================================
 
 export const UpdateCategorySchema = z.object({
   body: z
@@ -79,10 +67,6 @@ export const UpdateCategorySchema = z.object({
   }),
 });
 
-// ============================================================================
-// DELETE CATEGORY
-// ============================================================================
-
 export const DeleteCategorySchema = z.object({
   params: z.object({
     categoryId: z
@@ -90,10 +74,6 @@ export const DeleteCategorySchema = z.object({
       .uuid("Invalid category ID format"),
   }),
 });
-
-// ============================================================================
-// REORDER CATEGORIES
-// ============================================================================
 
 export const ReorderCategoriesSchema = z.object({
   body: z.object({
@@ -115,10 +95,6 @@ export const ReorderCategoriesSchema = z.object({
   }),
 });
 
-// ============================================================================
-// ACTIVATE CATEGORY
-// ============================================================================
-
 export const ActivateCategorySchema = z.object({
   params: z.object({
     categoryId: z
@@ -126,10 +102,6 @@ export const ActivateCategorySchema = z.object({
       .uuid("Invalid category ID format"),
   }),
 });
-
-// ============================================================================
-// DEACTIVATE CATEGORY
-// ============================================================================
 
 export const DeactivateCategorySchema = z.object({
   params: z.object({
@@ -139,10 +111,6 @@ export const DeactivateCategorySchema = z.object({
   }),
 });
 
-// ============================================================================
-// TOGGLE CATEGORY STATUS
-// ============================================================================
-
 export const ToggleCategoryStatusSchema = z.object({
   params: z.object({
     categoryId: z
@@ -150,10 +118,6 @@ export const ToggleCategoryStatusSchema = z.object({
       .uuid("Invalid category ID format"),
   }),
 });
-
-// ============================================================================
-// GET ACTIVE CATEGORIES
-// ============================================================================
 
 export const GetActiveCategoriesSchema = z.object({
   query: z.object({
@@ -173,10 +137,6 @@ export const GetActiveCategoriesSchema = z.object({
   }),
 });
 
-// ============================================================================
-// GET INACTIVE CATEGORIES
-// ============================================================================
-
 export const GetInactiveCategoriesSchema = z.object({
   query: z.object({
     sortBy: z
@@ -195,10 +155,6 @@ export const GetInactiveCategoriesSchema = z.object({
   }),
 });
 
-// ============================================================================
-// SEARCH CATEGORIES
-// ============================================================================
-
 export const SearchCategoriesSchema = z.object({
   query: z.object({
     searchTerm: z
@@ -216,10 +172,6 @@ export const SearchCategoriesSchema = z.object({
   }),
 });
 
-// ============================================================================
-// BULK DELETE CATEGORIES
-// ============================================================================
-
 export const BulkDeleteCategoriesSchema = z.object({
   body: z.object({
     categoryIds: z
@@ -236,10 +188,6 @@ export const BulkDeleteCategoriesSchema = z.object({
       ),
   }),
 });
-
-// ============================================================================
-// DUPLICATE CATEGORY
-// ============================================================================
 
 export const DuplicateCategorySchema = z.object({
   body: z.object({
@@ -262,10 +210,6 @@ export const DuplicateCategorySchema = z.object({
       .uuid("Invalid category ID format"),
   }),
 });
-
-// ============================================================================
-// GET CATEGORY WITH MENU ITEMS
-// ============================================================================
 
 export const GetCategoryWithMenuItemsSchema = z.object({
   params: z.object({
@@ -291,10 +235,6 @@ export const GetCategoryWithMenuItemsSchema = z.object({
   }),
 });
 
-// ============================================================================
-// GET CATEGORY STATS
-// ============================================================================
-
 export const GetCategoryStatsSchema = z.object({
   params: z.object({
     categoryId: z
@@ -311,10 +251,6 @@ export const GetCategoryStatsSchema = z.object({
       .default("month"),
   }),
 });
-
-// ============================================================================
-// MERGE CATEGORIES
-// ============================================================================
 
 export const MergeCategoriesSchema = z.object({
   body: z.object({

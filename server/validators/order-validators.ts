@@ -2,10 +2,7 @@ import { z } from "zod";
 
 import { OrderStatusEnum } from "../enums/models-enums.js";
 
-// ============================================================================
 // CREATE ORDER
-// ============================================================================
-
 export const CreateOrderSchema = z.object({
   body: z.object({
     tableId: z
@@ -60,10 +57,7 @@ export const CreateOrderSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET ORDER BY ID
-// ============================================================================
-
 export const GetOrderByIdSchema = z.object({
   params: z.object({
     orderId: z
@@ -72,10 +66,7 @@ export const GetOrderByIdSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET ORDERS BY TABLE
-// ============================================================================
-
 export const GetOrdersByTableSchema = z.object({
   params: z.object({
     tableId: z
@@ -105,10 +96,7 @@ export const GetOrdersByTableSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET ORDERS BY SESSION
-// ============================================================================
-
 export const GetOrdersBySessionSchema = z.object({
   params: z.object({
     sessionId: z
@@ -127,10 +115,7 @@ export const GetOrdersBySessionSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET ORDERS BY STATUS
-// ============================================================================
-
 export const GetOrdersByStatusSchema = z.object({
   params: z.object({
     status: z.nativeEnum(OrderStatusEnum, {
@@ -167,10 +152,7 @@ export const GetOrdersByStatusSchema = z.object({
   }),
 });
 
-// ============================================================================
 // UPDATE ORDER STATUS
-// ============================================================================
-
 export const UpdateOrderStatusSchema = z.object({
   body: z.object({
     status: z.nativeEnum(OrderStatusEnum, {
@@ -187,10 +169,7 @@ export const UpdateOrderStatusSchema = z.object({
   }),
 });
 
-// ============================================================================
 // ACCEPT ORDER (KITCHEN)
-// ============================================================================
-
 export const AcceptOrderSchema = z.object({
   body: z.object({
     acceptedBy: z
@@ -211,10 +190,7 @@ export const AcceptOrderSchema = z.object({
   }),
 });
 
-// ============================================================================
 // REJECT ORDER (KITCHEN)
-// ============================================================================
-
 export const RejectOrderSchema = z.object({
   body: z.object({
     rejectedBy: z
@@ -235,10 +211,7 @@ export const RejectOrderSchema = z.object({
   }),
 });
 
-// ============================================================================
 // CANCEL ORDER
-// ============================================================================
-
 export const CancelOrderSchema = z.object({
   body: z.object({
     cancelledBy: z
@@ -259,10 +232,7 @@ export const CancelOrderSchema = z.object({
   }),
 });
 
-// ============================================================================
 // MARK ORDER AS IN KITCHEN
-// ============================================================================
-
 export const MarkOrderInKitchenSchema = z.object({
   params: z.object({
     orderId: z
@@ -271,10 +241,7 @@ export const MarkOrderInKitchenSchema = z.object({
   }),
 });
 
-// ============================================================================
 // MARK ORDER AS READY
-// ============================================================================
-
 export const MarkOrderReadySchema = z.object({
   params: z.object({
     orderId: z
@@ -283,10 +250,7 @@ export const MarkOrderReadySchema = z.object({
   }),
 });
 
-// ============================================================================
 // MARK ORDER AS SERVED
-// ============================================================================
-
 export const MarkOrderServedSchema = z.object({
   params: z.object({
     orderId: z
@@ -295,10 +259,7 @@ export const MarkOrderServedSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET ACTIVE ORDERS (KITCHEN DASHBOARD)
-// ============================================================================
-
 export const GetActiveOrdersSchema = z.object({
   query: z.object({
     tableId: z
@@ -326,10 +287,7 @@ export const GetActiveOrdersSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET KITCHEN ORDERS (ALL PROCESSING ORDERS)
-// ============================================================================
-
 export const GetKitchenOrdersSchema = z.object({
   query: z.object({
     includeReady: z
@@ -341,10 +299,7 @@ export const GetKitchenOrdersSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET ORDERS BY DATE RANGE
-// ============================================================================
-
 export const GetOrdersByDateRangeSchema = z.object({
   query: z
     .object({
@@ -381,10 +336,7 @@ export const GetOrdersByDateRangeSchema = z.object({
     }),
 });
 
-// ============================================================================
 // GET ORDER STATS
-// ============================================================================
-
 export const GetOrderStatsSchema = z.object({
   query: z.object({
     period: z
@@ -402,10 +354,7 @@ export const GetOrderStatsSchema = z.object({
   }),
 });
 
-// ============================================================================
 // BULK UPDATE ORDER STATUS
-// ============================================================================
-
 export const BulkUpdateOrderStatusSchema = z.object({
   body: z.object({
     orderIds: z
@@ -425,10 +374,7 @@ export const BulkUpdateOrderStatusSchema = z.object({
   }),
 });
 
-// ============================================================================
 // UPDATE ORDER ITEMS (ADD/REMOVE ITEMS - BEFORE ACCEPTED)
-// ============================================================================
-
 export const UpdateOrderItemsSchema = z.object({
   body: z.object({
     items: z
@@ -468,10 +414,7 @@ export const UpdateOrderItemsSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET ORDER REVENUE STATS
-// ============================================================================
-
 export const GetOrderRevenueStatsSchema = z.object({
   query: z.object({
     startDate: z

@@ -2,10 +2,7 @@ import { z } from "zod";
 
 import { MenuItemTagEnum } from "../enums/models-enums.js";
 
-// ============================================================================
 // CREATE MENU ITEM
-// ============================================================================
-
 export const CreateMenuItemSchema = z.object({
   body: z.object({
     categoryId: z
@@ -66,10 +63,7 @@ export const CreateMenuItemSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET MENU ITEM BY ID
-// ============================================================================
-
 export const GetMenuItemByIdSchema = z.object({
   params: z.object({
     itemId: z
@@ -78,10 +72,7 @@ export const GetMenuItemByIdSchema = z.object({
   }),
 });
 
-// ============================================================================
 // UPDATE MENU ITEM
-// ============================================================================
-
 export const UpdateMenuItemSchema = z.object({
   body: z
     .object({
@@ -150,10 +141,7 @@ export const UpdateMenuItemSchema = z.object({
   }),
 });
 
-// ============================================================================
 // DELETE MENU ITEM
-// ============================================================================
-
 export const DeleteMenuItemSchema = z.object({
   params: z.object({
     itemId: z
@@ -162,10 +150,7 @@ export const DeleteMenuItemSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET MENU ITEMS BY CATEGORY
-// ============================================================================
-
 export const GetMenuItemsByCategorySchema = z.object({
   params: z.object({
     categoryId: z
@@ -197,10 +182,7 @@ export const GetMenuItemsByCategorySchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET MENU ITEMS BY TAG
-// ============================================================================
-
 export const GetMenuItemsByTagSchema = z.object({
   params: z.object({
     tag: z.nativeEnum(MenuItemTagEnum, {
@@ -220,10 +202,7 @@ export const GetMenuItemsByTagSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET MENU ITEMS BY PRICE RANGE
-// ============================================================================
-
 export const GetMenuItemsByPriceRangeSchema = z.object({
   query: z
     .object({
@@ -260,10 +239,7 @@ export const GetMenuItemsByPriceRangeSchema = z.object({
     }),
 });
 
-// ============================================================================
 // SEARCH MENU ITEMS
-// ============================================================================
-
 export const SearchMenuItemsSchema = z.object({
   query: z.object({
     searchTerm: z
@@ -283,10 +259,7 @@ export const SearchMenuItemsSchema = z.object({
   }),
 });
 
-// ============================================================================
 // MARK AS 86 (UNAVAILABLE)
-// ============================================================================
-
 export const Mark86Schema = z.object({
   params: z.object({
     itemId: z
@@ -304,10 +277,7 @@ export const Mark86Schema = z.object({
   }),
 });
 
-// ============================================================================
 // UNMARK 86 (MAKE AVAILABLE)
-// ============================================================================
-
 export const Unmark86Schema = z.object({
   params: z.object({
     itemId: z
@@ -316,10 +286,7 @@ export const Unmark86Schema = z.object({
   }),
 });
 
-// ============================================================================
 // BULK 86 ITEMS
-// ============================================================================
-
 export const Bulk86Schema = z.object({
   body: z.object({
     itemIds: z
@@ -336,10 +303,7 @@ export const Bulk86Schema = z.object({
   }),
 });
 
-// ============================================================================
 // BULK UNMARK 86 ITEMS
-// ============================================================================
-
 export const BulkUnmark86Schema = z.object({
   body: z.object({
     itemIds: z
@@ -349,10 +313,7 @@ export const BulkUnmark86Schema = z.object({
   }),
 });
 
-// ============================================================================
 // REORDER MENU ITEMS
-// ============================================================================
-
 export const ReorderMenuItemsSchema = z.object({
   body: z.object({
     itemOrders: z
@@ -373,10 +334,7 @@ export const ReorderMenuItemsSchema = z.object({
   }),
 });
 
-// ============================================================================
 // UPDATE MENU ITEM PRICE
-// ============================================================================
-
 export const UpdateMenuItemPriceSchema = z.object({
   body: z.object({
     price: z
@@ -393,10 +351,7 @@ export const UpdateMenuItemPriceSchema = z.object({
   }),
 });
 
-// ============================================================================
 // BULK UPDATE PRICES (PERCENTAGE CHANGE)
-// ============================================================================
-
 export const BulkUpdatePricesSchema = z.object({
   body: z.object({
     itemIds: z
@@ -412,10 +367,7 @@ export const BulkUpdatePricesSchema = z.object({
   }),
 });
 
-// ============================================================================
 // DUPLICATE MENU ITEM
-// ============================================================================
-
 export const DuplicateMenuItemSchema = z.object({
   body: z.object({
     newName: z
@@ -436,10 +388,7 @@ export const DuplicateMenuItemSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET MENU ITEM STATS
-// ============================================================================
-
 export const GetMenuItemStatsSchema = z.object({
   params: z.object({
     itemId: z

@@ -13,6 +13,11 @@ import TestingRouter from "./routes/testing-routes.js";
 import AuthRouter from "./routes/auth-routes.js";
 import UserRouter from "./routes/user-routes.js";
 import TableRouter from "./routes/table-routes.js";
+import SessionRouter from "./routes/session-routes.js";
+import CategoryRouter from "./routes/category-routes.js";
+import MenuItemRouter from "./routes/menu-item-routes.js";
+import OrderRouter from "./routes/order-routes.js";
+import BillRouter from "./routes/bill-routes.js";
 
 export const app = express();
 
@@ -29,6 +34,11 @@ app.use("/", TestingRouter);
 app.use("/api/auth", AuthRouter);
 app.use("/api/users", UserRouter);
 app.use("/api/tables", TableRouter);
+app.use("/api/sessions", SessionRouter);
+app.use("/api/categories", CategoryRouter);
+app.use("/api/menu-items", MenuItemRouter);
+app.use("/api/orders", OrderRouter);
+app.use("/api/bills", BillRouter);
 
 // ERROR HANDLER
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {

@@ -2,10 +2,6 @@ import { z } from "zod";
 
 import { BillStatusEnum } from "../enums/models-enums.js";
 
-// ============================================================================
-// CREATE OR GET BILL
-// ============================================================================
-
 export const CreateOrGetBillSchema = z.object({
   body: z.object({
     tableId: z
@@ -25,10 +21,6 @@ export const CreateOrGetBillSchema = z.object({
   }),
 });
 
-// ============================================================================
-// GET BILL BY ID
-// ============================================================================
-
 export const GetBillByIdSchema = z.object({
   params: z.object({
     billId: z
@@ -37,10 +29,6 @@ export const GetBillByIdSchema = z.object({
   }),
 });
 
-// ============================================================================
-// GET CURRENT BILL BY SESSION
-// ============================================================================
-
 export const GetCurrentBillBySessionSchema = z.object({
   params: z.object({
     sessionId: z
@@ -48,10 +36,6 @@ export const GetCurrentBillBySessionSchema = z.object({
       .uuid("Invalid session ID format"),
   }),
 });
-
-// ============================================================================
-// GET BILLS BY TABLE
-// ============================================================================
 
 export const GetBillsByTableSchema = z.object({
   params: z.object({
@@ -86,10 +70,6 @@ export const GetBillsByTableSchema = z.object({
       .optional(),
   }),
 });
-
-// ============================================================================
-// GET BILLS BY STATUS
-// ============================================================================
 
 export const GetBillsByStatusSchema = z.object({
   params: z.object({
@@ -127,10 +107,6 @@ export const GetBillsByStatusSchema = z.object({
   }),
 });
 
-// ============================================================================
-// ADD ORDER TO BILL
-// ============================================================================
-
 export const AddOrderToBillSchema = z.object({
   body: z.object({
     orderId: z
@@ -144,10 +120,6 @@ export const AddOrderToBillSchema = z.object({
       .uuid("Invalid bill ID format"),
   }),
 });
-
-// ============================================================================
-// APPLY PROMO CODE
-// ============================================================================
 
 export const ApplyPromoCodeSchema = z.object({
   body: z.object({
@@ -170,10 +142,6 @@ export const ApplyPromoCodeSchema = z.object({
   }),
 });
 
-// ============================================================================
-// REMOVE PROMO CODE
-// ============================================================================
-
 export const RemovePromoCodeSchema = z.object({
   params: z.object({
     billId: z
@@ -181,10 +149,6 @@ export const RemovePromoCodeSchema = z.object({
       .uuid("Invalid bill ID format"),
   }),
 });
-
-// ============================================================================
-// MARK BILL AS PENDING PAYMENT
-// ============================================================================
 
 export const MarkBillPendingPaymentSchema = z.object({
   params: z.object({
@@ -194,10 +158,6 @@ export const MarkBillPendingPaymentSchema = z.object({
   }),
 });
 
-// ============================================================================
-// MARK BILL AS PAID
-// ============================================================================
-
 export const MarkBillPaidSchema = z.object({
   params: z.object({
     billId: z
@@ -205,10 +165,6 @@ export const MarkBillPaidSchema = z.object({
       .uuid("Invalid bill ID format"),
   }),
 });
-
-// ============================================================================
-// CLOSE BILL
-// ============================================================================
 
 export const CloseBillSchema = z.object({
   body: z.object({
@@ -223,10 +179,6 @@ export const CloseBillSchema = z.object({
       .uuid("Invalid bill ID format"),
   }),
 });
-
-// ============================================================================
-// VOID BILL
-// ============================================================================
 
 export const VoidBillSchema = z.object({
   body: z.object({
@@ -247,10 +199,6 @@ export const VoidBillSchema = z.object({
       .uuid("Invalid bill ID format"),
   }),
 });
-
-// ============================================================================
-// UPDATE BILL CHARGES (ADMIN - MANUAL ADJUSTMENTS)
-// ============================================================================
 
 export const UpdateBillChargesSchema = z.object({
   body: z
@@ -296,10 +244,6 @@ export const UpdateBillChargesSchema = z.object({
   }),
 });
 
-// ============================================================================
-// GET BILL STATS
-// ============================================================================
-
 export const GetBillStatsSchema = z.object({
   query: z.object({
     period: z
@@ -316,10 +260,6 @@ export const GetBillStatsSchema = z.object({
       .optional(),
   }),
 });
-
-// ============================================================================
-// GET BILLS BY DATE RANGE
-// ============================================================================
 
 export const GetBillsByDateRangeSchema = z.object({
   query: z
@@ -368,10 +308,6 @@ export const GetBillsByDateRangeSchema = z.object({
     ),
 });
 
-// ============================================================================
-// GET REVENUE BY DATE RANGE
-// ============================================================================
-
 export const GetRevenueByDateRangeSchema = z.object({
   query: z
     .object({
@@ -391,10 +327,6 @@ export const GetRevenueByDateRangeSchema = z.object({
     }),
 });
 
-// ============================================================================
-// GET AVERAGE BILL VALUE
-// ============================================================================
-
 export const GetAverageBillValueSchema = z.object({
   query: z.object({
     period: z
@@ -405,10 +337,6 @@ export const GetAverageBillValueSchema = z.object({
       .default("month"),
   }),
 });
-
-// ============================================================================
-// SPLIT BILL (FUTURE FEATURE)
-// ============================================================================
 
 export const SplitBillSchema = z.object({
   body: z.object({
@@ -446,10 +374,6 @@ export const SplitBillSchema = z.object({
   }),
 });
 
-// ============================================================================
-// RECALCULATE BILL (ADMIN - FORCE RECALCULATION)
-// ============================================================================
-
 export const RecalculateBillSchema = z.object({
   params: z.object({
     billId: z
@@ -457,10 +381,6 @@ export const RecalculateBillSchema = z.object({
       .uuid("Invalid bill ID format"),
   }),
 });
-
-// ============================================================================
-// EMAIL BILL (SEND RECEIPT)
-// ============================================================================
 
 export const EmailBillSchema = z.object({
   body: z.object({

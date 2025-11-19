@@ -2,10 +2,7 @@ import { z } from "zod";
 
 import { TableStatusEnum } from "../enums/models-enums.js";
 
-// ============================================================================
 // CREATE TABLE
-// ============================================================================
-
 export const CreateTableSchema = z.object({
   body: z.object({
     tableNumber: z
@@ -39,10 +36,7 @@ export const CreateTableSchema = z.object({
   }),
 });
 
-// ============================================================================
 // CREATE MULTIPLE TABLES (BULK)
-// ============================================================================
-
 export const CreateMultipleTablesSchema = z.object({
   body: z.object({
     tables: z
@@ -74,10 +68,7 @@ export const CreateMultipleTablesSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET TABLE BY ID
-// ============================================================================
-
 export const GetTableByIdSchema = z.object({
   params: z.object({
     tableId: z
@@ -93,10 +84,7 @@ export const GetTableByIdSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET TABLE BY NUMBER
-// ============================================================================
-
 export const GetTableByNumberSchema = z.object({
   params: z.object({
     tableNumber: z
@@ -112,10 +100,7 @@ export const GetTableByNumberSchema = z.object({
   }),
 });
 
-// ============================================================================
 // UPDATE TABLE
-// ============================================================================
-
 export const UpdateTableSchema = z.object({
   body: z
     .object({
@@ -156,10 +141,7 @@ export const UpdateTableSchema = z.object({
   }),
 });
 
-// ============================================================================
 // UPDATE TABLE STATUS
-// ============================================================================
-
 export const UpdateTableStatusSchema = z.object({
   body: z.object({
     status: z.nativeEnum(TableStatusEnum, {
@@ -180,10 +162,7 @@ export const UpdateTableStatusSchema = z.object({
   }),
 });
 
-// ============================================================================
 // MARK TABLE AS OCCUPIED
-// ============================================================================
-
 export const MarkTableAsOccupiedSchema = z.object({
   params: z.object({
     tableId: z
@@ -196,10 +175,7 @@ export const MarkTableAsOccupiedSchema = z.object({
   }),
 });
 
-// ============================================================================
 // MARK TABLE AS AVAILABLE
-// ============================================================================
-
 export const MarkTableAsAvailableSchema = z.object({
   params: z.object({
     tableId: z
@@ -212,10 +188,7 @@ export const MarkTableAsAvailableSchema = z.object({
   }),
 });
 
-// ============================================================================
 // MARK TABLE AS RESERVED
-// ============================================================================
-
 export const MarkTableAsReservedSchema = z.object({
   params: z.object({
     tableId: z
@@ -228,10 +201,7 @@ export const MarkTableAsReservedSchema = z.object({
   }),
 });
 
-// ============================================================================
 // MARK TABLE AS MAINTENANCE
-// ============================================================================
-
 export const MarkTableAsMaintenanceSchema = z.object({
   params: z.object({
     tableId: z
@@ -244,10 +214,7 @@ export const MarkTableAsMaintenanceSchema = z.object({
   }),
 });
 
-// ============================================================================
 // DELETE TABLE
-// ============================================================================
-
 export const DeleteTableSchema = z.object({
   params: z.object({
     tableId: z
@@ -260,10 +227,7 @@ export const DeleteTableSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET TABLES BY STATUS
-// ============================================================================
-
 export const GetTablesByStatusSchema = z.object({
   params: z.object({
     status: z.nativeEnum(TableStatusEnum, {
@@ -274,10 +238,7 @@ export const GetTablesByStatusSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET TABLES BY CAPACITY
-// ============================================================================
-
 export const GetTablesByCapacitySchema = z.object({
   query: z.object({
     minCapacity: z
@@ -293,10 +254,7 @@ export const GetTablesByCapacitySchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET TABLES BY LOCATION
-// ============================================================================
-
 export const GetTablesByLocationSchema = z.object({
   query: z.object({
     location: z
@@ -307,10 +265,7 @@ export const GetTablesByLocationSchema = z.object({
   }),
 });
 
-// ============================================================================
 // BULK UPDATE TABLE STATUS
-// ============================================================================
-
 export const BulkUpdateTableStatusSchema = z.object({
   body: z.object({
     tableIds: z
@@ -334,10 +289,7 @@ export const BulkUpdateTableStatusSchema = z.object({
   }),
 });
 
-// ============================================================================
 // REGENERATE QR CODE
-// ============================================================================
-
 export const RegenerateQRCodeSchema = z.object({
   params: z.object({
     tableId: z
@@ -350,10 +302,7 @@ export const RegenerateQRCodeSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET TABLE STATS (ADMIN DASHBOARD)
-// ============================================================================
-
 export const GetTableStatsSchema = z.object({
   query: z.object({
     includeHistory: z

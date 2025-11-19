@@ -49,23 +49,12 @@ import {
 const TableRouter = Router();
 TableRouter.use(VerifyStaffAuth);
 
+// STAFF-PROTECTED ROUTES
 TableRouter.get(
   "/stats",
   RequireStaff,
   ValidateRequest(GetTableStatsSchema),
   GetTableStats
-);
-TableRouter.post(
-  "/bulk",
-  RequireAdmin,
-  ValidateRequest(CreateMultipleTablesSchema),
-  CreateMultipleTables
-);
-TableRouter.put(
-  "/bulk/status",
-  RequireAdmin,
-  ValidateRequest(BulkUpdateTableStatusSchema),
-  BulkUpdateTableStatus
 );
 TableRouter.get("/available", RequireStaff, GetAvailableTables);
 TableRouter.get(
@@ -93,29 +82,11 @@ TableRouter.get(
   GetTableByNumber
 );
 TableRouter.get("/", RequireStaff, GetAllTables);
-TableRouter.post(
-  "/",
-  RequireAdmin,
-  ValidateRequest(CreateTableSchema),
-  CreateTable
-);
 TableRouter.get(
   "/:tableId",
   RequireStaff,
   ValidateRequest(GetTableByIdSchema),
   GetTableById
-);
-TableRouter.put(
-  "/:tableId",
-  RequireAdmin,
-  ValidateRequest(UpdateTableSchema),
-  UpdateTable
-);
-TableRouter.delete(
-  "/:tableId",
-  RequireAdmin,
-  ValidateRequest(DeleteTableSchema),
-  DeleteTable
 );
 TableRouter.put(
   "/:tableId/status",
@@ -140,6 +111,38 @@ TableRouter.put(
   RequireStaff,
   ValidateRequest(MarkTableAsReservedSchema),
   MarkTableAsReserved
+);
+
+// ADMIN-ONLY ROUTES
+TableRouter.post(
+  "/bulk",
+  RequireAdmin,
+  ValidateRequest(CreateMultipleTablesSchema),
+  CreateMultipleTables
+);
+TableRouter.put(
+  "/bulk/status",
+  RequireAdmin,
+  ValidateRequest(BulkUpdateTableStatusSchema),
+  BulkUpdateTableStatus
+);
+TableRouter.post(
+  "/",
+  RequireAdmin,
+  ValidateRequest(CreateTableSchema),
+  CreateTable
+);
+TableRouter.put(
+  "/:tableId",
+  RequireAdmin,
+  ValidateRequest(UpdateTableSchema),
+  UpdateTable
+);
+TableRouter.delete(
+  "/:tableId",
+  RequireAdmin,
+  ValidateRequest(DeleteTableSchema),
+  DeleteTable
 );
 TableRouter.put(
   "/:tableId/mark-maintenance",

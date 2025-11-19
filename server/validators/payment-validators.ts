@@ -2,10 +2,7 @@ import { z } from "zod";
 
 import { PaymentMethodEnum, PaymentStatusEnum } from "../enums/models-enums.js";
 
-// ============================================================================
 // CREATE PAYMENT INTENT
-// ============================================================================
-
 export const CreatePaymentIntentSchema = z.object({
   body: z.object({
     billId: z
@@ -32,10 +29,7 @@ export const CreatePaymentIntentSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET PAYMENT BY ID
-// ============================================================================
-
 export const GetPaymentByIdSchema = z.object({
   params: z.object({
     paymentId: z
@@ -44,10 +38,7 @@ export const GetPaymentByIdSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET PAYMENT BY IDEMPOTENCY KEY
-// ============================================================================
-
 export const GetPaymentByIdempotencyKeySchema = z.object({
   query: z.object({
     idempotencyKey: z
@@ -56,10 +47,7 @@ export const GetPaymentByIdempotencyKeySchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET PAYMENTS BY BILL
-// ============================================================================
-
 export const GetPaymentsByBillSchema = z.object({
   params: z.object({
     billId: z
@@ -78,10 +66,7 @@ export const GetPaymentsByBillSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET PAYMENTS BY STATUS
-// ============================================================================
-
 export const GetPaymentsByStatusSchema = z.object({
   params: z.object({
     status: z.nativeEnum(PaymentStatusEnum, {
@@ -118,10 +103,7 @@ export const GetPaymentsByStatusSchema = z.object({
   }),
 });
 
-// ============================================================================
 // PROCESS PAYMENT
-// ============================================================================
-
 export const ProcessPaymentSchema = z.object({
   body: z.object({
     transactionId: z
@@ -143,10 +125,7 @@ export const ProcessPaymentSchema = z.object({
   }),
 });
 
-// ============================================================================
 // CONFIRM PAYMENT (AFTER WEBHOOK)
-// ============================================================================
-
 export const ConfirmPaymentSchema = z.object({
   body: z.object({
     webhookVerified: z
@@ -163,10 +142,7 @@ export const ConfirmPaymentSchema = z.object({
   }),
 });
 
-// ============================================================================
 // FAIL PAYMENT
-// ============================================================================
-
 export const FailPaymentSchema = z.object({
   body: z.object({
     failureReason: z
@@ -194,10 +170,7 @@ export const FailPaymentSchema = z.object({
   }),
 });
 
-// ============================================================================
 // REFUND PAYMENT
-// ============================================================================
-
 export const RefundPaymentSchema = z.object({
   body: z.object({
     refundReason: z
@@ -226,10 +199,7 @@ export const RefundPaymentSchema = z.object({
   }),
 });
 
-// ============================================================================
 // WEBHOOK HANDLER - EASYPAISA
-// ============================================================================
-
 export const EasypaisaWebhookSchema = z.object({
   body: z.object({
     transactionId: z
@@ -270,10 +240,7 @@ export const EasypaisaWebhookSchema = z.object({
   }),
 });
 
-// ============================================================================
 // WEBHOOK HANDLER - JAZZCASH
-// ============================================================================
-
 export const JazzCashWebhookSchema = z.object({
   body: z.object({
     pp_TxnRefNo: z
@@ -307,10 +274,7 @@ export const JazzCashWebhookSchema = z.object({
   }),
 });
 
-// ============================================================================
 // WEBHOOK HANDLER - MASTERCARD/STRIPE
-// ============================================================================
-
 export const MastercardWebhookSchema = z.object({
   body: z.object({
     id: z
@@ -353,10 +317,7 @@ export const MastercardWebhookSchema = z.object({
   }),
 });
 
-// ============================================================================
 // VERIFY WEBHOOK SIGNATURE (GENERIC)
-// ============================================================================
-
 export const VerifyWebhookSignatureSchema = z.object({
   body: z.object({
     payload: z
@@ -373,10 +334,7 @@ export const VerifyWebhookSignatureSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET PAYMENT STATS
-// ============================================================================
-
 export const GetPaymentStatsSchema = z.object({
   query: z.object({
     period: z
@@ -402,10 +360,7 @@ export const GetPaymentStatsSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET PAYMENTS BY DATE RANGE
-// ============================================================================
-
 export const GetPaymentsByDateRangeSchema = z.object({
   query: z
     .object({
@@ -441,10 +396,7 @@ export const GetPaymentsByDateRangeSchema = z.object({
     }),
 });
 
-// ============================================================================
 // RETRY FAILED PAYMENT
-// ============================================================================
-
 export const RetryFailedPaymentSchema = z.object({
   body: z.object({
     newMethod: z
@@ -464,10 +416,7 @@ export const RetryFailedPaymentSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET PENDING PAYMENTS (ADMIN DASHBOARD)
-// ============================================================================
-
 export const GetPendingPaymentsSchema = z.object({
   query: z.object({
     olderThan: z
@@ -498,10 +447,7 @@ export const GetPendingPaymentsSchema = z.object({
   }),
 });
 
-// ============================================================================
 // CANCEL PAYMENT (BEFORE PROCESSING)
-// ============================================================================
-
 export const CancelPaymentSchema = z.object({
   body: z.object({
     cancellationReason: z

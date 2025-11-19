@@ -1,9 +1,6 @@
 import { z } from "zod";
-import { UserRoleEnum } from "../enums/models-enums.js";
 
-// ============================================================================
-// REGISTER / CREATE USER
-// ============================================================================
+import { UserRoleEnum } from "../enums/models-enums.js";
 
 export const RegisterUserSchema = z.object({
   body: z.object({
@@ -35,10 +32,6 @@ export const RegisterUserSchema = z.object({
   }),
 });
 
-// ============================================================================
-// LOGIN
-// ============================================================================
-
 export const LoginSchema = z.object({
   body: z.object({
     email: z
@@ -52,10 +45,6 @@ export const LoginSchema = z.object({
       .min(1, "Password cannot be empty"),
   }),
 });
-
-// ============================================================================
-// CHANGE PASSWORD
-// ============================================================================
 
 export const ChangePasswordSchema = z.object({
   body: z
@@ -94,10 +83,6 @@ export const ChangePasswordSchema = z.object({
   }),
 });
 
-// ============================================================================
-// RESET PASSWORD (ADMIN)
-// ============================================================================
-
 export const ResetPasswordSchema = z.object({
   body: z.object({
     newPassword: z
@@ -115,10 +100,6 @@ export const ResetPasswordSchema = z.object({
       .uuid("Invalid user ID format"),
   }),
 });
-
-// ============================================================================
-// UPDATE USER
-// ============================================================================
 
 export const UpdateUserSchema = z.object({
   body: z
@@ -145,10 +126,6 @@ export const UpdateUserSchema = z.object({
   }),
 });
 
-// ============================================================================
-// GET USER BY ID
-// ============================================================================
-
 export const GetUserByIdSchema = z.object({
   params: z.object({
     userId: z
@@ -156,10 +133,6 @@ export const GetUserByIdSchema = z.object({
       .uuid("Invalid user ID format"),
   }),
 });
-
-// ============================================================================
-// DELETE USER
-// ============================================================================
 
 export const DeleteUserSchema = z.object({
   params: z.object({
@@ -169,10 +142,6 @@ export const DeleteUserSchema = z.object({
   }),
 });
 
-// ============================================================================
-// DEACTIVATE / ACTIVATE USER
-// ============================================================================
-
 export const ToggleUserStatusSchema = z.object({
   params: z.object({
     userId: z
@@ -180,10 +149,6 @@ export const ToggleUserStatusSchema = z.object({
       .uuid("Invalid user ID format"),
   }),
 });
-
-// ============================================================================
-// SEARCH USERS
-// ============================================================================
 
 export const SearchUsersSchema = z.object({
   query: z.object({
@@ -195,10 +160,6 @@ export const SearchUsersSchema = z.object({
   }),
 });
 
-// ============================================================================
-// GET USERS BY ROLE
-// ============================================================================
-
 export const GetUsersByRoleSchema = z.object({
   params: z.object({
     role: z.nativeEnum(UserRoleEnum, {
@@ -206,10 +167,6 @@ export const GetUsersByRoleSchema = z.object({
     }),
   }),
 });
-
-// ============================================================================
-// REFRESH TOKEN
-// ============================================================================
 
 export const RefreshTokenSchema = z.object({
   body: z.object({

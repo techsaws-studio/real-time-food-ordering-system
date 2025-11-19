@@ -1,9 +1,6 @@
 import { z } from "zod";
 
-// ============================================================================
 // CREATE SESSION (QR CODE SCAN)
-// ============================================================================
-
 export const CreateSessionSchema = z.object({
   body: z.object({
     tableId: z
@@ -29,10 +26,7 @@ export const CreateSessionSchema = z.object({
   }),
 });
 
-// ============================================================================
 // VERIFY SESSION (2FA SECURITY CODE)
-// ============================================================================
-
 export const VerifySessionSchema = z.object({
   body: z.object({
     sessionId: z
@@ -46,10 +40,7 @@ export const VerifySessionSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET SESSION BY ID
-// ============================================================================
-
 export const GetSessionByIdSchema = z.object({
   params: z.object({
     sessionId: z
@@ -58,10 +49,7 @@ export const GetSessionByIdSchema = z.object({
   }),
 });
 
-// ============================================================================
 // END SESSION
-// ============================================================================
-
 export const EndSessionSchema = z.object({
   params: z.object({
     sessionId: z
@@ -70,10 +58,7 @@ export const EndSessionSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET ACTIVE SESSIONS BY TABLE
-// ============================================================================
-
 export const GetSessionsByTableSchema = z.object({
   params: z.object({
     tableId: z
@@ -89,10 +74,7 @@ export const GetSessionsByTableSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET SESSIONS BY DATE RANGE
-// ============================================================================
-
 export const GetSessionsByDateRangeSchema = z.object({
   query: z
     .object({
@@ -112,10 +94,7 @@ export const GetSessionsByDateRangeSchema = z.object({
     }),
 });
 
-// ============================================================================
 // EXTEND SESSION (OPTIONAL FEATURE)
-// ============================================================================
-
 export const ExtendSessionSchema = z.object({
   body: z.object({
     additionalHours: z
@@ -132,10 +111,7 @@ export const ExtendSessionSchema = z.object({
   }),
 });
 
-// ============================================================================
 // REGENERATE SECURITY CODE (IF USER LOST IT)
-// ============================================================================
-
 export const RegenerateSecurityCodeSchema = z.object({
   params: z.object({
     sessionId: z
@@ -153,10 +129,7 @@ export const RegenerateSecurityCodeSchema = z.object({
   }),
 });
 
-// ============================================================================
 // VALIDATE SESSION (CHECK IF ACTIVE WITHOUT DB UPDATE)
-// ============================================================================
-
 export const ValidateSessionSchema = z.object({
   query: z.object({
     sessionId: z
@@ -165,10 +138,7 @@ export const ValidateSessionSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET SESSION STATS (ADMIN)
-// ============================================================================
-
 export const GetSessionStatsSchema = z.object({
   query: z.object({
     period: z
@@ -180,10 +150,7 @@ export const GetSessionStatsSchema = z.object({
   }),
 });
 
-// ============================================================================
 // CLEANUP EXPIRED SESSIONS (ADMIN/CRON)
-// ============================================================================
-
 export const CleanupExpiredSessionsSchema = z.object({
   query: z.object({
     dryRun: z
@@ -195,10 +162,7 @@ export const CleanupExpiredSessionsSchema = z.object({
   }),
 });
 
-// ============================================================================
 // FORCE END SESSION (ADMIN/RECEPTIONIST)
-// ============================================================================
-
 export const ForceEndSessionSchema = z.object({
   body: z.object({
     reason: z
@@ -215,10 +179,7 @@ export const ForceEndSessionSchema = z.object({
   }),
 });
 
-// ============================================================================
 // GET ACTIVE SESSIONS COUNT (DASHBOARD)
-// ============================================================================
-
 export const GetActiveSessionsCountSchema = z.object({
   query: z.object({
     tableId: z
@@ -232,10 +193,7 @@ export const GetActiveSessionsCountSchema = z.object({
   }),
 });
 
-// ============================================================================
 // TRANSFER SESSION TO DIFFERENT TABLE (ADMIN)
-// ============================================================================
-
 export const TransferSessionSchema = z.object({
   body: z.object({
     newTableId: z
