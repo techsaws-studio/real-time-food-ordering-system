@@ -18,6 +18,8 @@ import CategoryRouter from "./routes/category-routes.js";
 import MenuItemRouter from "./routes/menu-item-routes.js";
 import OrderRouter from "./routes/order-routes.js";
 import BillRouter from "./routes/bill-routes.js";
+import PaymentRouter from "./routes/payment-routes.js";
+import WebhookRouter from "./routes/webhook-routes.js";
 
 export const app = express();
 
@@ -39,6 +41,8 @@ app.use("/api/categories", CategoryRouter);
 app.use("/api/menu-items", MenuItemRouter);
 app.use("/api/orders", OrderRouter);
 app.use("/api/bills", BillRouter);
+app.use("/api/payments", PaymentRouter);
+app.use("/api/webhooks", WebhookRouter);
 
 // ERROR HANDLER
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {

@@ -320,15 +320,15 @@ export const GetWebhookStatus = CatchAsyncErrors(
     const gateways = {
       easypaisa: {
         configured: !!process.env.EASYPAISA_SECRET_KEY,
-        webhookUrl: `${process.env.API_BASE_URL}/webhooks/easypaisa`,
+        webhookUrl: `${process.env.WEBHOOK_API_BASE_URL}/webhooks/easypaisa`,
       },
       jazzcash: {
         configured: !!process.env.JAZZCASH_INTEGRITY_KEY,
-        webhookUrl: `${process.env.API_BASE_URL}/webhooks/jazzcash`,
+        webhookUrl: `${process.env.WEBHOOK_API_BASE_URL}/webhooks/jazzcash`,
       },
       mastercard: {
         configured: !!process.env.STRIPE_WEBHOOK_SECRET,
-        webhookUrl: `${process.env.API_BASE_URL}/webhooks/mastercard`,
+        webhookUrl: `${process.env.WEBHOOK_API_BASE_URL}/webhooks/mastercard`,
       },
     };
 
