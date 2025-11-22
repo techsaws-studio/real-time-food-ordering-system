@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #000000;
+    --secondary-background: #0b0b0b;
+
+    --heading: #fafafa;
+    --foreground: #ffffff;
+    --paragraph: #e5e5e5;
+
+    --card: #111111;
+    --card-foreground: #e5e7eb;
+
+    --popover: #111111;
+    --popover-foreground: #e5e5e5;
+
+    --primary: #f6342a;
+    --primary-foreground: #1a1a1a;
+    --primary-hover: #d72d25;
+
+    --muted: #1a1a1a;
+    --muted-foreground: #a1a1aa;
+    --muted-hover: #232323;
+
+    --accent: #facc15;
+    --accent-foreground: #111111;
+    --accent-hover: #eab308;
+
+    --destructive: #f6342a;
+    --destructive-foreground: #ffffff;
+
+    --border: #27272a;
+    --input: #1f1f22;
+    --ring: #f6342a;
+
+    --sidebar-background: #0a0a0a;
+    --sidebar-foreground: #e5e7eb;
+
+    --sidebar-primary: #f6342a;
+    --sidebar-primary-foreground: #ffffff;
+
+    --sidebar-accent: #facc15;
+    --sidebar-accent-foreground: #111111;
+
+    --sidebar-border: #1f1f22;
+    --sidebar-ring: #f6342a;
+
+    --radius: 0.65rem;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--paragraph);
+  font-family: var(--font-inter), sans-serif;
+  text-rendering: optimizeLegibility;
+  border: var(--border);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-orbitron), sans-serif;
+  color: var(--heading);
+}
