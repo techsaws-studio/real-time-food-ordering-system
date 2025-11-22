@@ -62,8 +62,6 @@ const TableSchema: Schema = new Schema(
   }
 );
 
-TableSchema.index({ tableId: 1 });
-TableSchema.index({ tableNumber: 1 });
 TableSchema.index({ status: 1 });
 
 const Table = mongoose.model<ITable>("Table", TableSchema);

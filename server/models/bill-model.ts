@@ -11,7 +11,6 @@ const BillSchema: Schema = new Schema(
       required: [true, "Bill ID is required"],
       unique: true,
       default: () => crypto.randomUUID(),
-      index: true,
     },
 
     tableId: {
@@ -20,14 +19,12 @@ const BillSchema: Schema = new Schema(
       uppercase: true,
       trim: true,
       ref: "Table",
-      index: true,
     },
 
     sessionId: {
       type: String,
       required: [true, "Session ID is required"],
       ref: "TableSession",
-      index: true,
     },
 
     orders: {
@@ -113,7 +110,6 @@ const BillSchema: Schema = new Schema(
       },
       default: BillStatusEnum.OPEN,
       uppercase: true,
-      index: true,
     },
 
     paidAt: {

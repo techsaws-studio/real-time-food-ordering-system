@@ -52,7 +52,6 @@ const OrderSchema: Schema = new Schema(
       required: [true, "Order ID is required"],
       unique: true,
       default: () => crypto.randomUUID(),
-      index: true,
     },
 
     tableId: {
@@ -61,14 +60,12 @@ const OrderSchema: Schema = new Schema(
       uppercase: true,
       trim: true,
       ref: "Table",
-      index: true,
     },
 
     sessionId: {
       type: String,
       required: [true, "Session ID is required"],
       ref: "TableSession",
-      index: true,
     },
 
     items: {
@@ -90,7 +87,6 @@ const OrderSchema: Schema = new Schema(
       },
       default: OrderStatusEnum.PLACED,
       uppercase: true,
-      index: true,
     },
 
     specialInstructions: {
@@ -117,7 +113,6 @@ const OrderSchema: Schema = new Schema(
       type: Date,
       required: [true, "Placed time is required"],
       default: Date.now,
-      index: true,
     },
 
     acceptedAt: {

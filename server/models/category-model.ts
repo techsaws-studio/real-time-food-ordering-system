@@ -10,7 +10,6 @@ const CategorySchema: Schema = new Schema(
       required: [true, "Category ID is required"],
       unique: true,
       default: () => crypto.randomUUID(),
-      index: true,
     },
 
     name: {
@@ -19,7 +18,6 @@ const CategorySchema: Schema = new Schema(
       trim: true,
       minlength: [2, "Category name must be at least 2 characters"],
       maxlength: [100, "Category name cannot exceed 100 characters"],
-      index: true,
     },
 
     description: {
@@ -34,13 +32,11 @@ const CategorySchema: Schema = new Schema(
       required: [true, "Display order is required"],
       min: [0, "Display order cannot be negative"],
       default: 0,
-      index: true,
     },
 
     isActive: {
       type: Boolean,
       default: true,
-      index: true,
     },
   },
   {
@@ -49,7 +45,6 @@ const CategorySchema: Schema = new Schema(
   }
 );
 
-CategorySchema.index({ categoryId: 1 });
 CategorySchema.index({ isActive: 1, displayOrder: 1 });
 
 const Category = mongoose.model<ICategory>("Category", CategorySchema);

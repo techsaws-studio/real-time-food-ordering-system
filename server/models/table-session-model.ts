@@ -10,7 +10,6 @@ const TableSessionSchema: Schema = new Schema(
       required: [true, "Session ID is required"],
       unique: true,
       default: () => crypto.randomUUID(),
-      index: true,
     },
 
     tableId: {
@@ -19,7 +18,6 @@ const TableSessionSchema: Schema = new Schema(
       uppercase: true,
       trim: true,
       ref: "Table",
-      index: true,
     },
 
     securityCode: {
@@ -33,19 +31,16 @@ const TableSessionSchema: Schema = new Schema(
       type: String,
       required: [true, "Device ID is required"],
       trim: true,
-      index: true,
     },
 
     isActive: {
       type: Boolean,
       default: true,
-      index: true,
     },
 
     isVerified: {
       type: Boolean,
       default: false,
-      index: true,
     },
 
     verificationAttempts: {
@@ -64,7 +59,6 @@ const TableSessionSchema: Schema = new Schema(
       type: Date,
       required: [true, "Expiration date is required"],
       default: () => new Date(Date.now() + 2 * 60 * 60 * 1000), // 2 hours
-      index: true,
     },
 
     verifiedAt: {

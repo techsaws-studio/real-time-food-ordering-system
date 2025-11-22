@@ -11,14 +11,12 @@ const MenuItemSchema: Schema = new Schema(
       required: [true, "Item ID is required"],
       unique: true,
       default: () => crypto.randomUUID(),
-      index: true,
     },
 
     categoryId: {
       type: String,
       required: [true, "Category ID is required"],
       ref: "Category",
-      index: true,
     },
 
     name: {
@@ -27,7 +25,6 @@ const MenuItemSchema: Schema = new Schema(
       trim: true,
       minlength: [2, "Item name must be at least 2 characters"],
       maxlength: [200, "Item name cannot exceed 200 characters"],
-      index: true,
     },
 
     description: {
@@ -41,7 +38,6 @@ const MenuItemSchema: Schema = new Schema(
       type: Number,
       required: [true, "Price is required"],
       min: [0, "Price cannot be negative"],
-      index: true,
     },
 
     images: {
@@ -58,7 +54,6 @@ const MenuItemSchema: Schema = new Schema(
     isAvailable: {
       type: Boolean,
       default: true,
-      index: true,
     },
 
     preparationTime: {
@@ -76,7 +71,6 @@ const MenuItemSchema: Schema = new Schema(
         message: "{VALUE} is not a valid tag",
       },
       default: [],
-      index: true,
     },
 
     displayOrder: {
@@ -84,7 +78,6 @@ const MenuItemSchema: Schema = new Schema(
       required: [true, "Display order is required"],
       min: [0, "Display order cannot be negative"],
       default: 0,
-      index: true,
     },
   },
   {

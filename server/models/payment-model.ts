@@ -11,14 +11,12 @@ const PaymentSchema: Schema = new Schema(
       required: [true, "Payment ID is required"],
       unique: true,
       default: () => crypto.randomUUID(),
-      index: true,
     },
 
     billId: {
       type: String,
       required: [true, "Bill ID is required"],
       ref: "Bill",
-      index: true,
     },
 
     amount: {
@@ -35,7 +33,6 @@ const PaymentSchema: Schema = new Schema(
       },
       required: [true, "Payment method is required"],
       uppercase: true,
-      index: true,
     },
 
     status: {
@@ -46,27 +43,23 @@ const PaymentSchema: Schema = new Schema(
       },
       default: PaymentStatusEnum.PENDING,
       uppercase: true,
-      index: true,
     },
 
     transactionId: {
       type: String,
       trim: true,
       default: null,
-      index: true,
     },
 
     idempotencyKey: {
       type: String,
       required: [true, "Idempotency key is required"],
       unique: true,
-      index: true,
     },
 
     webhookVerified: {
       type: Boolean,
       default: false,
-      index: true,
     },
 
     paidAt: {
@@ -106,7 +99,6 @@ const PaymentSchema: Schema = new Schema(
 
 PaymentSchema.index({ billId: 1, status: 1 });
 PaymentSchema.index({ status: 1, createdAt: -1 });
-PaymentSchema.index({ idempotencyKey: 1 });
 
 const Payment = mongoose.model<IPayment>("Payment", PaymentSchema);
 export default Payment;

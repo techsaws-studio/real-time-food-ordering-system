@@ -11,7 +11,6 @@ const UserSchema: Schema = new Schema(
       required: [true, "User ID is required"],
       unique: true,
       default: () => crypto.randomUUID(),
-      index: true,
     },
 
     email: {
@@ -24,7 +23,6 @@ const UserSchema: Schema = new Schema(
         /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
         "Please provide a valid email address",
       ],
-      index: true,
     },
 
     password: {
@@ -42,7 +40,6 @@ const UserSchema: Schema = new Schema(
       },
       required: [true, "Role is required"],
       uppercase: true,
-      index: true,
     },
 
     name: {
@@ -56,7 +53,6 @@ const UserSchema: Schema = new Schema(
     isActive: {
       type: Boolean,
       default: true,
-      index: true,
     },
 
     lastLogin: {
@@ -70,8 +66,6 @@ const UserSchema: Schema = new Schema(
   }
 );
 
-UserSchema.index({ userId: 1 });
-UserSchema.index({ email: 1 });
 UserSchema.index({ role: 1, isActive: 1 });
 
 const User = mongoose.model<IUser>("User", UserSchema);
