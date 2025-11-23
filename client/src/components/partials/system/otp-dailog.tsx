@@ -38,13 +38,13 @@ export function OtpDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="bg-[var(--popover)] text-[var(--popover-foreground)] border-[var(--border)]">
         <DialogHeader>
-          <DialogTitle className="text-[var(--heading)]">
+          <DialogTitle className="text-heading lg:text-xl md:text-lg text-base font-inter">
             Verify Your Table
           </DialogTitle>
         </DialogHeader>
 
         <div className="space-y-6">
-          <p className="text-sm text-[var(--paragraph)]">
+          <p className="md:text-base text-sm">
             Please enter the 6-digit verification code provided by our staff to
             confirm your table session.
           </p>
@@ -62,24 +62,15 @@ export function OtpDialog({
             </InputOTPGroup>
           </InputOTP>
 
-          <div className="flex gap-2">
-            <Button
-              className="flex-1 h-[45px] bg-accent text-accent-foreground hover:bg-accent-hover font-semibold"
-              disabled={otp.length < 6}
-              onClick={handleVerify}
-            >
-              Verify & Continue
-            </Button>
-            <Button
-              variant="outline"
-              className="flex-1 h-[46px] hover:bg-background hover:text-accent"
-              onClick={() => onOpenChange(false)}
-            >
-              Cancel
-            </Button>
-          </div>
+          <Button
+            className="flex-1 h-[45px] w-full bg-accent text-accent-foreground hover:bg-accent-hover font-semibold"
+            disabled={otp.length < 6}
+            onClick={handleVerify}
+          >
+            Verify & Continue
+          </Button>
 
-          <p className="text-xs text-[var(--muted-foreground)]">
+          <p className="text-xs text-muted-foreground">
             Your table session will remain active once verified.
           </p>
         </div>
