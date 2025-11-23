@@ -1,5 +1,4 @@
 import SystemHeader from "@/components/layouts/system-header";
-import SystemFooter from "@/components/layouts/system-footer";
 
 export default function SystemLayout({
   children,
@@ -10,7 +9,6 @@ export default function SystemLayout({
     <>
       <SystemHeader />
       {children}
-      <SystemFooter />
     </>
   );
 }

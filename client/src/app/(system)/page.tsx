@@ -1,8 +1,9 @@
-// import SystemLandingPage from "@/containers/system/system-landing-page";
+import React from "react";
+
+import SystemLandingPage from "@/containers/system/system-landing-page";
 
 function SystemLanding() {
-  // return <SystemLandingPage />;
-  return <>hi</>;
+  return <SystemLandingPage />;
 }
 
 export default SystemLanding;

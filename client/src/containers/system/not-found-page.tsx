@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
@@ -24,7 +25,7 @@ function NotFoundPage() {
         </span>
         <span className="h-8 w-px bg-[var(--border)]" />
         <p className="text-sm md:text-base text-[var(--muted-foreground)]">
-          The page you&apos;re looking for doesn&apos;t exist—or it moved.
+          The page you’re looking for doesn’t exist—or it moved.
         </p>
       </div>
 
@@ -32,8 +33,8 @@ function NotFoundPage() {
         Lost in the <span className="text-primary">sauce?</span> 🍝
       </h2>
       <p className="mt-2 text-[var(--paragraph)]">
-        Let&apos;s get you back to delicious things. You can return home, go
-        back, or try refreshing.
+        Let’s get you back to delicious things. You can return home, go back, or
+        try refreshing.
       </p>
 
       <div className="mt-8 flex flex-col sm:flex-row gap-3">

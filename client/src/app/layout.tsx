@@ -5,7 +5,7 @@ import { Toaster } from "react-hot-toast";
 import { GetPageMetadata } from "@/utils/meta-data";
 
 // STYLE SHEETS SOURCE
-import "../styles/globals.css";
+import "@/styles/globals.css";
 
 // FONT CONFIGURATIONS
 const orbitron = Orbitron({

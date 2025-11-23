@@ -1,3 +1,5 @@
+import React from "react";
+
 import SystemAuthenticationPage from "@/containers/system/system-authentication-page";
 
 function SystemAuthentication() {
