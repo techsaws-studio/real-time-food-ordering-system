@@ -9,6 +9,6 @@ export const LogoutFunction = async () => {
 
   document.cookie = "authToken=; path=/; max-age=0";
   document.cookie = "user_role=; path=/; max-age=0";
-
+  document.cookie = "user_info=; path=/; max-age=0";
   window.location.href = "/authentication";
 };

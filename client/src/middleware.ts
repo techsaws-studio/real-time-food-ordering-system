@@ -4,9 +4,9 @@ import type { NextRequest } from "next/server";
 const PUBLIC_ROUTES = ["/", "/authentication"];
 
 const ROLE_DASHBOARDS: Record<string, string> = {
-  ADMIN: "/admin/dashboard",
-  KITCHEN: "/kitchen/orders",
-  RECEPTIONIST: "/receptionist/tables",
+  ADMIN: "/admin/overview",
+  KITCHEN: "/kitchen/orders-console",
+  RECEPTIONIST: "/receptionist/tables-management",
 };
 
 export function middleware(request: NextRequest) {

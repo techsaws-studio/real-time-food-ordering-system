@@ -45,9 +45,9 @@ function AuthForm() {
         toast.success("Login successful!");
 
         const redirectMap = {
-          ADMIN: "/admin/dashboard",
-          KITCHEN: "/kitchen/orders",
-          RECEPTIONIST: "/receptionist/tables",
+          ADMIN: "/admin/overview",
+          KITCHEN: "/kitchen/orders-console",
+          RECEPTIONIST: "/receptionist/tables-management",
         };
 
         router.push(redirectMap[response.data.user.role]);
