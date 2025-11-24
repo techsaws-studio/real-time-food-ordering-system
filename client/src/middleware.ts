@@ -33,9 +33,11 @@ export function middleware(request: NextRequest) {
     if (pathname.startsWith("/admin") && userRole !== "ADMIN") {
       return NextResponse.redirect(new URL("/authentication", request.url));
     }
+
     if (pathname.startsWith("/kitchen") && userRole !== "KITCHEN") {
       return NextResponse.redirect(new URL("/authentication", request.url));
     }
+
     if (pathname.startsWith("/receptionist") && userRole !== "RECEPTIONIST") {
       return NextResponse.redirect(new URL("/authentication", request.url));
     }

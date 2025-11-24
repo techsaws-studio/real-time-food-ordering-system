@@ -7,8 +7,6 @@ import { OtpDialog } from "@/components/includes/system/landing/otp-dailog";
 import PageHeading from "@/components/partials/page-heading";
 import QrScannerCard from "@/components/includes/system/landing/qr-scanner-card";
 import ManualCodeCard from "@/components/includes/system/landing/manual-code-card";
-import { Button } from "@/components/ui/button";
-import { LogoutFunction } from "@/utils/logout-function";
 
 export default function SystemLandingPage() {
   const [otpOpen, setOtpOpen] = useState(false);
@@ -25,7 +23,6 @@ export default function SystemLandingPage() {
       <section className="grid gap-4 lg:grid-cols-2">
         <QrScannerCard />
         <ManualCodeCard setOtpOpen={setOtpOpen} />
-        <Button onClick={LogoutFunction} />
       </section>
 
       <section className="lg:mt-8 mt-4">

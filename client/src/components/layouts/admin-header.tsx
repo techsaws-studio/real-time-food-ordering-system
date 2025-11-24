@@ -13,7 +13,7 @@ import { LogoutFunction } from "@/utils/logout-function";
 
 import { Power } from "lucide-react";
 
-function ReceptionistHeader() {
+function AdminHeader() {
   const [user, setUser] = useState<UserInfo | null>(null);
 
   useEffect(() => {
@@ -48,7 +48,7 @@ function ReceptionistHeader() {
             className="mr-2 data-[orientation=vertical]:h-8 w-[2px] rounded"
           />
           <h1 className="text-2xl font-orbitron font-semibold text-heading">
-            Receptionist
+            Administrative
           </h1>
         </div>
 
@@ -90,4 +90,4 @@ function ReceptionistHeader() {
   );
 }
 
-export default ReceptionistHeader;
+export default AdminHeader;

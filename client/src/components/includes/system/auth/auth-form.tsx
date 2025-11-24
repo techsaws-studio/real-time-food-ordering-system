@@ -4,8 +4,6 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 
-import { LoginResponse } from "@/types/components.includes-interfaces";
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -13,6 +11,7 @@ import { Label } from "@/components/ui/label";
 import { Spinner } from "@/components/ui/spinner";
 
 import { ApiRequest } from "@/utils/api-request";
+import { LoginResponse } from "@/types/components.includes-interfaces";
 
 function AuthForm() {
   const router = useRouter();
@@ -38,9 +37,20 @@ function AuthForm() {
       });
 
       if (response.success && response.data) {
-        document.cookie = `user_role=${
-          response.data.user.role
-        }; path=/; max-age=${7 * 24 * 60 * 60}`;
+        const { user } = response.data;
+
+        document.cookie = `user_role=${user.role}; path=/; max-age=${
+          7 * 24 * 60 * 60
+        }`;
+
+        const userInfo = {
+          userId: user.userId,
+          email: user.email,
+          name: user.name,
+        };
+        document.cookie = `user_info=${encodeURIComponent(
+          JSON.stringify(userInfo)
+        )}; path=/; max-age=${7 * 24 * 60 * 60}`;
 
         toast.success("Login successful!");
 
@@ -50,7 +60,7 @@ function AuthForm() {
           RECEPTIONIST: "/receptionist/tables-management",
         };
 
-        router.push(redirectMap[response.data.user.role]);
+        router.push(redirectMap[user.role]);
         router.refresh();
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
