@@ -1,10 +1,12 @@
+"use client";
+
 import React, { useState } from "react";
 
 import { Card, CardContent } from "@/components/ui/card";
-import { OtpDialog } from "@/components/partials/system/landing/otp-dailog";
+import { OtpDialog } from "@/components/includes/system/landing/otp-dailog";
 import PageHeading from "@/components/partials/page-heading";
-import QrScannerCard from "@/components/partials/system/landing/qr-scanner-card";
-import ManualCodeCard from "@/components/partials/system/landing/manual-code-card";
+import QrScannerCard from "@/components/includes/system/landing/qr-scanner-card";
+import ManualCodeCard from "@/components/includes/system/landing/manual-code-card";
 
 export default function SystemLandingPage() {
   const [otpOpen, setOtpOpen] = useState(false);

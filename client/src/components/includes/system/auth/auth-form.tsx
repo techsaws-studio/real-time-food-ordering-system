@@ -1,7 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
+
+import { LoginResponse } from "@/types/components.includes-interfaces";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -9,10 +12,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Spinner } from "@/components/ui/spinner";
 
+import { ApiRequest } from "@/utils/api-request";
+
 function AuthForm() {
-  const [loading, setLoading] = useState<boolean>(false);
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    username: "",
+    email: "",
     password: "",
   });
 
@@ -26,11 +32,30 @@ function AuthForm() {
     setLoading(true);
 
     try {
-      toast.success("Signed in successfully!");
-      console.log("Logged in:", formData);
+      const response = await ApiRequest<LoginResponse>("auth/login", "POST", {
+        email: formData.email.trim(),
+        password: formData.password,
+      });
+
+      if (response.success && response.data) {
+        document.cookie = `user_role=${
+          response.data.user.role
+        }; path=/; max-age=${7 * 24 * 60 * 60}`;
+
+        toast.success("Login successful!");
+
+        const redirectMap = {
+          ADMIN: "/admin/dashboard",
+          KITCHEN: "/kitchen/orders",
+          RECEPTIONIST: "/receptionist/tables",
+        };
+
+        router.push(redirectMap[response.data.user.role]);
+        router.refresh();
+      }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
-      toast.error(err.message || "Something went wrong!");
+      toast.error(err.message || "Login failed");
     } finally {
       setLoading(false);
     }
@@ -39,22 +64,20 @@ function AuthForm() {
   return (
     <Card className="md:w-[500px] w-full bg-card border-border">
       <CardContent className="pt-6">
-        <form
-          className="space-y-5"
-          onSubmit={handleSubmit}
-          aria-label="sign-in form"
-        >
+        <form className="space-y-5" onSubmit={handleSubmit}>
           <div className="space-y-2">
-            <Label htmlFor="username">Username</Label>
+            <Label htmlFor="email">Email</Label>
             <Input
-              id="username"
-              name="username"
-              placeholder="Enter username"
-              value={formData.username}
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Enter email"
+              value={formData.email}
               onChange={handleChange}
-              autoComplete="username"
+              autoComplete="email"
               className="bg-input h-[50px]"
               required
+              disabled={loading}
             />
           </div>
 
@@ -70,6 +93,7 @@ function AuthForm() {
               autoComplete="current-password"
               className="bg-input h-[50px]"
               required
+              disabled={loading}
             />
           </div>
 

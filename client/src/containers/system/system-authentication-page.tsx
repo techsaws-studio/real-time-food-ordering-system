@@ -1,7 +1,7 @@
 
 import React from "react";
 
-import AuthForm from "@/components/partials/system/auth/auth-form";
+import AuthForm from "@/components/includes/system/auth/auth-form";
 
 export default function SystemAuthenticationPage() {
   return (
