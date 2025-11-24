@@ -1,31 +1,44 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
+const PUBLIC_ROUTES = ["/", "/authentication"];
+
+const ROLE_DASHBOARDS: Record<string, string> = {
+  ADMIN: "/admin/dashboard",
+  KITCHEN: "/kitchen/orders",
+  RECEPTIONIST: "/receptionist/tables",
+};
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   const token = request.cookies.get("authToken");
   const userRole = request.cookies.get("user_role")?.value;
 
-  // PUBLIC ROUTES
-  if (pathname === "/" || pathname.startsWith("/authentication")) {
-    return NextResponse.next();
+  const isPublicRoute = PUBLIC_ROUTES.some((route) =>
+    pathname.startsWith(route)
+  );
+
+  if (pathname.startsWith("/authentication") && token && userRole) {
+    return NextResponse.redirect(
+      new URL(ROLE_DASHBOARDS[userRole] || "/", request.url)
+    );
   }
 
-  // REDIRECT TO LOGIN (IF NOT AUTHENTICATED)
-  if (!token) {
+  if (!token && !isPublicRoute) {
     return NextResponse.redirect(new URL("/authentication", request.url));
   }
 
-  // ROLE-BASED REDIRECTS
-  if (pathname.startsWith("/admin") && userRole !== "ADMIN") {
-    return NextResponse.redirect(new URL("/authentication", request.url));
-  }
-  if (pathname.startsWith("/kitchen") && userRole !== "KITCHEN") {
-    return NextResponse.redirect(new URL("/authentication", request.url));
-  }
-  if (pathname.startsWith("/receptionist") && userRole !== "RECEPTIONIST") {
-    return NextResponse.redirect(new URL("/authentication", request.url));
+  if (token && userRole) {
+    if (pathname.startsWith("/admin") && userRole !== "ADMIN") {
+      return NextResponse.redirect(new URL("/authentication", request.url));
+    }
+    if (pathname.startsWith("/kitchen") && userRole !== "KITCHEN") {
+      return NextResponse.redirect(new URL("/authentication", request.url));
+    }
+    if (pathname.startsWith("/receptionist") && userRole !== "RECEPTIONIST") {
+      return NextResponse.redirect(new URL("/authentication", request.url));
+    }
   }
 
   return NextResponse.next();
