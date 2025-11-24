@@ -6,6 +6,7 @@ import { GetPageMetadata } from "@/utils/meta-data";
 
 // STYLE SHEETS SOURCE
 import "@/styles/globals.css";
+import "@/styles/includes.css";
 
 // FONT CONFIGURATIONS
 const orbitron = Orbitron({

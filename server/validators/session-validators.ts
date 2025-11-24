@@ -19,10 +19,6 @@ export const CreateSessionSchema = z.object({
       .min(1, "Device ID cannot be empty")
       .max(255, "Device ID cannot exceed 255 characters")
       .trim(),
-
-    createdBy: z
-      .string({ message: "Creator ID is required (receptionist user ID)" })
-      .uuid("Invalid creator ID format"),
   }),
 });
 
